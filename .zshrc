@@ -101,7 +101,7 @@ alias fixwin="sudo ntfsfix /dev/sda5"
 alias cmdrating="history | awk '{CMD[\$2]++;count++;} END { for (a in CMD) print CMD[a] \" \" CMD[a] / count * 100 \"% \" a;}' | grep -v "./" | column -c3 -s \" \" -t | sort -nr | nl | head -n10"
 alias cgb="git branch | grep -v \"master\" | xargs git branch -D "
 alias naomi="~/projects/shell/enc.sh"
-alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" --privileged kali /bin/bash"
+alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" -w /root --privileged kali /bin/bash"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 # zsh autosuggestion
@@ -116,4 +116,8 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# suggestion on command not found
+[ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
 
