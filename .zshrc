@@ -33,13 +33,13 @@ ZSH_THEME="sunrise"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -100,9 +100,10 @@ alias fixwin="sudo ntfsfix /dev/sda5"
 #alias processing="sh '/home/indmind/processing-3.3.6/processing'"
 alias cmdrating="history | awk '{CMD[\$2]++;count++;} END { for (a in CMD) print CMD[a] \" \" CMD[a] / count * 100 \"% \" a;}' | grep -v "./" | column -c3 -s \" \" -t | sort -nr | nl | head -n10"
 alias cgb="git branch | grep -v \"master\" | xargs git branch -D "
-alias naomi="~/projects/shell/enc.sh"
+# alias naomi="~/projects/shell/enc.sh"
 alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" -w /root --privileged kali /bin/bash"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+alias dl="python3  /home/indmind/projects/not\ me/spotify-downloader/spotdl.py"
 
 # zsh autosuggestion
 
@@ -113,11 +114,31 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 
 # Path Settings
 
+export PATH="$PATH:$HOME/bin"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export PATH=$PATH:/opt/framework/metasploit-framework
+alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
+
+export PATH="$PATH:$HOME/.composer/vendor/bin"
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin"
+
+source ~/.rvm/scripts/rvm
 
 # suggestion on command not found
 [ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
 
+# init pyenv
+if command -v pyenv 1>/dev/null 2>&1;
+then
+    eval "$(pyenv init -)"
+fi
