@@ -1,0 +1,32 @@
+#!/bin/bash
+
+encrypt(){
+    for x in `ls -p | grep -v / `; do
+        randname=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1) &&
+        echo "$x -> $randname" &&
+        zip --password "$1" $randname $(printf '%q' "$x") &&
+        echo "removing $x" &&
+        rm $x -rf
+    done
+}
+
+decrypt(){
+    for x in `ls *.zip`; do
+        echo "opening $x" &&
+        unzip -P $1 $x &&
+        echo "removing $x" &&
+        rm $x -rf
+    done
+}
+
+if [ $1 = 'enc' ]
+then
+    echo "encrypting!"
+    encrypt $2 $3
+fi
+
+if [ $1 = 'dec' ]
+then
+    echo "decrypting!"
+    decrypt $2 $3
+fi
