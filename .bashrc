@@ -131,7 +131,7 @@ alias fixwin="sudo ntfsfix /dev/sda5"
 #alias processing="sh '/home/indmind/processing-3.3.6/processing'"
 alias cmdrating="history | awk '{CMD[\$2]++;count++;} END { for (a in CMD) print CMD[a] \" \" CMD[a] / count * 100 \"% \" a;}' | grep -v "./" | column -c3 -s \" \" -t | sort -nr | nl | head -n10"
 alias cgb="git branch | grep -v \"master\" | xargs git branch -D "
-alias naomi="~/projects/shell/enc.sh"
+# alias naomi="~/projects/shell/enc.sh"
 alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" --privileged kali /bin/bash"
 
 export GPG_TTY=$(tty)
