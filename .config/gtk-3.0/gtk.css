@@ -1,0 +1,119 @@
+VteTerminal,
+TerminalScreen {
+  padding: 0px 10px 10px 10px;
+  -vteterminal-inner-border: 0px 10px 10px 10px;
+}
+
+/* .titlebar {
+            background-color: #f32323;
+            border: 0px;
+            box-shadow: none;
+          } */
+
+/* window.ssd headerbar.titlebar {
+            padding-top: 1px;
+            padding-bottom: 1px;
+          }
+          
+          window.ssd headerbar.titlebar button.titlebutton {
+            padding-top: 1px;
+            padding-bottom: 1px;
+          }
+          
+          headerbar {
+            padding-left: 2px;
+            padding-right: 2px;
+            background-color: #282a36;
+            border-width: 0 0 1px;
+            border-style: solid;
+            border-color: #282a36;
+            box-shadow: inset 0 -1px #252731, inset 0 1px #444758;
+          }
+          
+          headerbar entry,
+          headerbar spinbutton,
+          headerbar button,
+          headerbar separator {
+            margin-top: 2px;
+            margin-bottom: 2px;
+          }
+          
+          .default-decoration {
+            padding: 5px;
+            margin: 10px;
+          }
+          
+          .headerbar {
+            background-color: #282a36;
+            border-width: 0 0 1px;
+            border-style: solid;
+            border-color: #282a36;
+            box-shadow: inset 0 -1px #252731, inset 0 1px #444758;
+          }
+          
+          .menubar {
+            background-color: #282a36;
+            box-shadow: none;
+          } */
+
+/* .window-frame {
+            border-radius: 8px 8px 0 0;
+          }
+          
+          .window-frame.maximized {
+            border-radius: 0px;
+          } */
+
+/* window-frame style */
+
+/* background-color: #282a36;
+            border-color: #2
+            82a36;
+            border-style: solid; */
+
+/* border-width: 0px;
+            border-bottom-width: 7px;
+            border-left-width: 2px;
+            border-right-width:  2px; */
+
+/* margin-bottom: 20px; */
+
+/* #window-name .button,
+          GtkWindow#window-name GtkButton.button {
+            background-color: #282a36;
+            border-radius: 8px;
+          } */
+
+/* window label {
+            background-color: #282a36;
+          } */
+/* 
+          GtkWindow.rounded,
+          GtkWindow.rounded .action-bar {
+              border-radius: 0 0 9px 9px;
+          }
+          
+          GtkWindow.rounded.window-frame {
+              border-radius: 9px;
+          }
+          
+          #panel .panel-corner {
+            -panel-corner-radius: 9px;
+            -panel-corner-background-color: transparent;
+            -panel-corner-border-width: 2px;
+            -panel-corner-border-color: rgb(255, 0, 0);
+          }
+          
+          #panel .panel-corner:active,
+          #panel .panel-corner:overview,
+          #panel .panel-corner:focus {
+            -panel-corner-border-color: rgb(224, 17, 17);
+          }
+          
+          #panel .panel-corner.lock-screen,
+          #panel .panel-corner.login-screen,
+          #panel .panel-cornerunlock-screen {
+            -panel-corner-radius: 0;
+            -panel-corner-background-color: transparent;
+            -panel-corner-border-color: transparent;
+          } */
