@@ -1,5 +1,5 @@
 {
-    "workbench.startupEditor": "newUntitledFile",
+    "workbench.startupEditor": "none",
     "files.associations": {
         "*.jwsl": "coffeescript"
     },
@@ -9,7 +9,7 @@
     "extensions.ignoreRecommendations": false,
     "editor.fontFamily": "'Ubuntu Mono', Menlo, Monaco, 'Courier New', monospace",
     "window.menuBarVisibility": "toggle",
-    "editor.fontSize": 16,
+    "editor.fontSize": 17,
     "workbench.colorCustomizations": {
         "sideBar.background": "#282A36",
         "activityBar.background": "#282A36",
@@ -17,24 +17,26 @@
         "editorGroup.background": "#282A36",
         "input.background": "#282A36",
         "input.border": "#22232b4D",
-        "inputOption.activeBorder": "#33CBBF",
+        "inputOption.activeBorder": "#00b0ff",
         "inputValidation.errorBackground": "#ff5555",
         "inputValidation.errorBorder": "#ff5555",
         "inputValidation.infoBackground": "#8be9fd",
         "inputValidation.infoBorder": "#8be9fd",
         "inputValidation.warningBackground": "#f1fa8c",
         "inputValidation.warningBorder": "#f1fa8c",
-        "dropdown.background": "#33CBBF",
-        "dropdown.border": "#33CBBF",
-        "statusBar.background": "#252731",
+        "dropdown.background": "#00b0ff",
+        "dropdown.border": "#00b0ff",
+        "statusBar.background": "#282A36",
+        "statusBar.noFolderBackground" : "#282A36",
+        "statusBar.debuggingBackground": "#282A36",
         "scrollbar.shadow": "#282A36E6",
         "widget.shadow": "#282A36E6",
         "tab.border": "#242530",
-        "tab.activeBackground": "#33CBBF",
+        "tab.activeBackground": "#00000007",
         "tab.inactiveBackground": "#282A36",
         "editorGroupHeader.tabsBackground": "#282A36",
-        "button.hoverBackground": "#33CBBF",
-        "scrollbarSlider.activeBackground": "#33CBBF",
+        "button.hoverBackground": "#00b0ff",
+        "scrollbarSlider.activeBackground": "#00b0ff",
         // "terminal.ansiBlack": "#282A36",
         // "terminal.ansiRed": "#FF5555",
         // "terminal.ansiBlue": "#8BE9FD",
@@ -69,5 +71,5 @@
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 0
+    "window.zoomLevel": 1
 }
