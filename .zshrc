@@ -7,7 +7,7 @@
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="sunrise"
+ZSH_THEME="sunset"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -103,7 +103,8 @@ alias cgb="git branch | grep -v \"master\" | xargs git branch -D "
 # alias naomi="~/projects/shell/enc.sh"
 alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" -w /root --privileged kali /bin/bash"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-alias dl="python3  /home/indmind/projects/not\ me/spotify-downloader/spotdl.py"
+alias spdl="python3 ~/Projects/not\ me/spotify-downloader/spotdl.py -f ~/Music/SpotifyDl"
+alias open='xdg-open &>/dev/null'
 
 # zsh autosuggestion
 
@@ -136,6 +137,9 @@ source ~/.rvm/scripts/rvm
 
 # suggestion on command not found
 [ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 
 # init pyenv
 if command -v pyenv 1>/dev/null 2>&1;
