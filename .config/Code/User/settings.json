@@ -71,5 +71,5 @@
     "sync.removeExtensions": true,
     "sync.syncExtensions": true,
     "editor.minimap.enabled": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 0
 }
