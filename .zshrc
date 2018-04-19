@@ -1,14 +1,17 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+echo "setting oh-my-zsh path"
 # Path to your oh-my-zsh installation.
   export ZSH=/home/indmind/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+echo "setting zsh theme"
 ZSH_THEME="sunset"
 
+echo "setting zsh config"
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -58,6 +61,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+echo "loading plugin"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -93,7 +97,8 @@ source $ZSH/oh-my-zsh.sh
 
 # My Alias
 
-alias sudo="sudo "
+echo "setting aliases"
+
 alias winproj="cd /media/indmind/Data/Project"
 alias cekinet="sudo iftop -i wlp3s0"
 alias fixwin="sudo ntfsfix /dev/sda5"
@@ -108,6 +113,8 @@ alias open='xdg-open &>/dev/null'
 
 # zsh autosuggestion
 
+echo "enabling zsh auto suggestion"
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
@@ -115,34 +122,50 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 
 # Path Settings
 
+echo "exporting home bin path"
 export PATH="$PATH:$HOME/bin"
 
+echo "exoporting nvm path"
 export NVM_DIR="$HOME/.nvm"
+echo "loading nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+echo "loading nvm bash completion"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$PATH:/opt/framework/metasploit-framework
+echo "exporting metasploit framework path"
+export PATH="$PATH:/opt/framework/metasploit-framework"
+echo "create msfconsole alias"
 alias msfconsole="msfconsole --quiet -x \"db_connect ${USER}@msf\""
 
+echo "exporting godot path"
+export PATH="$PATH:/opt/Godot"
+
+echo "exporting composer bin path"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+echo "exporting pyenv path"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+echo "exporting ruby path"
 export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
+echo "load rvm scripts"
 source ~/.rvm/scripts/rvm
 
+echo "load zsh command not found"
 # suggestion on command not found
 [ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-
+echo "init pyenv"
 # init pyenv
 if command -v pyenv 1>/dev/null 2>&1;
 then
     eval "$(pyenv init -)"
 fi
+
+figlet DONE!
+sleep .3
+clear
