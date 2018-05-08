@@ -110,6 +110,8 @@ alias hackel="docker run -it -e DISPLAY=$DISPLAY --net=\"host\" -w /root --privi
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias spdl="python3 ~/Projects/not\ me/spotify-downloader/spotdl.py -f ~/Music/SpotifyDl"
 alias open='xdg-open &>/dev/null'
+alias trans='trans -b'
+alias copy='xclip -sel clip'
 
 # zsh autosuggestion
 
@@ -120,17 +122,30 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
 #AUTOSUGGESTION_HIGHLIGHT_COLOR="fg=240,bold"
 
+echo "setting default editor"
+export EDITOR="/usr/bin/vim"
+
 # Path Settings
 
 echo "exporting home bin path"
 export PATH="$PATH:$HOME/bin"
 
-echo "exoporting nvm path"
-export NVM_DIR="$HOME/.nvm"
-echo "loading nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-echo "loading nvm bash completion"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+echo "setting up nvm"
+# Defer initialization of nvm until nvm, node or a node-dependent command is
+# run. Ensure this block is only run once if .bashrc gets sourced multiple times
+# by checking whether __init_nvm is a function.
+if [ -s "$HOME/.nvm/nvm.sh" ] && [ ! "$(whence -w __init_nvm)" = function ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"
+  declare -a __node_commands=('nvm' 'node' 'npm' 'yarn' 'gulp' 'grunt' 'webpack')
+  function __init_nvm() {
+    for i in "${__node_commands[@]}"; do unalias $i; done
+    . "$NVM_DIR"/nvm.sh
+    unset __node_commands
+    unset -f __init_nvm
+  }
+  for i in "${__node_commands[@]}"; do alias $i='__init_nvm && '$i; done
+fi
 
 echo "exporting metasploit framework path"
 export PATH="$PATH:/opt/framework/metasploit-framework"
@@ -143,6 +158,9 @@ export PATH="$PATH:/opt/Godot"
 echo "exporting composer bin path"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
+echo "exporting jsnation path"
+export PATH="$PATH:$HOME/Applications/jsnation-linux-x64"
+
 echo "exporting pyenv path"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -151,6 +169,9 @@ echo "exporting ruby path"
 export PATH="$PATH:$HOME/.gem/ruby/2.3.0/bin"
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
+
+echo "exporting go env"
+export GOROOT="/usr/local/go"
 
 echo "load rvm scripts"
 source ~/.rvm/scripts/rvm
